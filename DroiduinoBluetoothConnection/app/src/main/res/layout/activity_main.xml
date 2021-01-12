@@ -38,6 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
@@ -91,7 +92,7 @@
         app:layout_constraintTop_toBottomOf="@+id/randomShit" />
 
     <LinearLayout
-        android:id="@+id/greyLayout"
+        android:id="@+id/layout_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -101,6 +102,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewInfo">
 
         <ImageView
+            android:id="@+id/image_1"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_weight="1"
@@ -108,90 +110,126 @@
             tools:ignore="VectorDrawableCompat" />
 
         <TextView
+            android:id="@+id/textView_1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Helmet not available"
+            android:text="No signal"
             android:textColor="#111" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/yellowLayout"
+        android:id="@+id/layout_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/greyLayout">
+        app:layout_constraintTop_toBottomOf="@+id/layout_1">
 
         <ImageView
+            android:id="@+id/image_2"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/yellow_helmet"
+            app:srcCompat="@drawable/grey_helmet"
             tools:ignore="VectorDrawableCompat" />
 
         <TextView
+            android:id="@+id/textView_2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Charging"
+            android:text="No signal"
             android:textColor="#111" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/redLayout"
+        android:id="@+id/layout_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yellowLayout">
+        app:layout_constraintTop_toBottomOf="@+id/layout_2">
 
         <ImageView
+            android:id="@+id/image_3"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/red_helmet"
+            app:srcCompat="@drawable/grey_helmet"
             tools:ignore="VectorDrawableCompat" />
 
         <TextView
+            android:id="@+id/textView_3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Not Charging"
+            android:text="No signal"
             android:textColor="#111" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/greenLayout"
+        android:id="@+id/layout_4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/redLayout">
+        app:layout_constraintTop_toBottomOf="@+id/layout_3">
 
         <ImageView
+            android:id="@+id/image_4"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_weight="1"
             android:padding="10dp"
-            app:srcCompat="@drawable/green_helmet"
+            app:srcCompat="@drawable/grey_helmet"
             tools:ignore="VectorDrawableCompat" />
 
         <TextView
+            android:id="@+id/textView_4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Fully Charged"
+            android:text="No signal"
+            android:textColor="#111" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_4">
+
+        <ImageView
+            android:id="@+id/image_5"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:padding="10dp"
+            app:srcCompat="@drawable/grey_helmet"
+            tools:ignore="VectorDrawableCompat" />
+
+        <TextView
+            android:id="@+id/textView_5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="No signal"
             android:textColor="#111" />
 
     </LinearLayout>

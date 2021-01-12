@@ -1,13 +1,8 @@
 package com.droiduino.bluetoothconn;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,6 +15,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -58,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         // If a bluetooth device has been selected from SelectDeviceActivity
         deviceName = getIntent().getStringExtra("deviceName");
-        if (deviceName != null){
+        if (deviceName != null) {
             // Get the device address to make BT Connection
             deviceAddress = getIntent().getStringExtra("deviceAddress");
             // Show progree and connection status
@@ -72,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             selected device (see the thread code below)
              */
             BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-            createConnectThread = new CreateConnectThread(bluetoothAdapter,deviceAddress);
+            createConnectThread = new CreateConnectThread(bluetoothAdapter, deviceAddress);
             createConnectThread.start();
         }
 
@@ -81,10 +79,10 @@ public class MainActivity extends AppCompatActivity {
          */
         handler = new Handler(Looper.getMainLooper()) {
             @Override
-            public void handleMessage(Message msg){
-                switch (msg.what){
+            public void handleMessage(Message msg) {
+                switch (msg.what) {
                     case CONNECTING_STATUS:
-                        switch(msg.arg1){
+                        switch (msg.arg1) {
                             case 1:
                                 toolbar.setSubtitle("Connected to " + deviceName);
                                 progressBar.setVisibility(View.GONE);
@@ -101,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
                     case MESSAGE_READ:
                         String arduinoMsg = msg.obj.toString(); // Read message from Arduino
-                        switch (arduinoMsg.toLowerCase()){
+                        switch (arduinoMsg.toLowerCase()) {
                             case "led is turned on":
                                 imageView.setBackgroundColor(getResources().getColor(R.color.colorOn));
                                 textViewInfo.setText("Arduino Message : " + arduinoMsg);
@@ -132,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String cmdText = null;
                 String btnState = buttonToggle.getText().toString().toLowerCase();
-                switch (btnState){
+                switch (btnState) {
                     case "turn on":
                         buttonToggle.setText("Turn Off");
                         // Command to turn on LED on Arduino. Must match with the command in Arduino code
@@ -148,7 +146,109 @@ public class MainActivity extends AppCompatActivity {
                 connectedThread.write(cmdText);
             }
         });
+
+        // example for setting layoutStates
+        layoutStates(R.id.layout_1, "charging", "Voltage wagra jo bhi likhana hai idher likh lo");
+        layoutStates(R.id.layout_2, "not-available", "No Signal");
+        layoutStates(R.id.layout_3, "not-available", "No Signal");
+        layoutStates(R.id.layout_4, "not-available", "No Signal");
+        layoutStates(R.id.layout_5, "not-available", "No Signal");
     }
+
+    public void layoutStates(int layout_id, String state, String text) {
+        if (layout_id == R.id.layout_1) {
+            TextView textView = findViewById(R.id.textView_1);
+            textView.setText(text);
+            ImageView imageView = findViewById(R.id.image_1);
+            switch (state) {
+                case "charging":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.yellow_helmet));
+                    break;
+                case "not-charging":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.red_helmet));
+                    break;
+                case "fully-charging":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.green_helmet));
+                    break;
+                case "not-available":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.grey_helmet));
+                    break;
+            }
+        } else if (layout_id == R.id.layout_2) {
+            TextView textView = findViewById(R.id.textView_2);
+            textView.setText(text);
+            ImageView imageView = findViewById(R.id.image_2);
+            switch (state) {
+                case "charging":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.yellow_helmet));
+                    break;
+                case "not-charging":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.red_helmet));
+                    break;
+                case "fully-charging":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.green_helmet));
+                    break;
+                case "not-available":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.grey_helmet));
+                    break;
+            }
+        } else if (layout_id == R.id.layout_3) {
+            TextView textView = findViewById(R.id.textView_3);
+            textView.setText(text);
+            ImageView imageView = findViewById(R.id.image_3);
+            switch (state) {
+                case "charging":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.yellow_helmet));
+                    break;
+                case "not-charging":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.red_helmet));
+                    break;
+                case "fully-charging":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.green_helmet));
+                    break;
+                case "not-available":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.grey_helmet));
+                    break;
+            }
+        } else if (layout_id == R.id.layout_4) {
+            TextView textView = findViewById(R.id.textView_4);
+            textView.setText(text);
+            ImageView imageView = findViewById(R.id.image_4);
+            switch (state) {
+                case "charging":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.yellow_helmet));
+                    break;
+                case "not-charging":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.red_helmet));
+                    break;
+                case "fully-charging":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.green_helmet));
+                    break;
+                case "not-available":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.grey_helmet));
+                    break;
+            }
+        } else if (layout_id == R.id.layout_5) {
+            TextView textView = findViewById(R.id.textView_5);
+            textView.setText(text);
+            ImageView imageView = findViewById(R.id.image_5);
+            switch (state) {
+                case "charging":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.yellow_helmet));
+                    break;
+                case "not-charging":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.red_helmet));
+                    break;
+                case "fully-charging":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.green_helmet));
+                    break;
+                case "not-available":
+                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.grey_helmet));
+                    break;
+            }
+        }
+    }
+
 
     /* ============================ Thread to Create Bluetooth Connection =================================== */
     public static class CreateConnectThread extends Thread {
@@ -231,7 +331,8 @@ public class MainActivity extends AppCompatActivity {
             try {
                 tmpIn = socket.getInputStream();
                 tmpOut = socket.getOutputStream();
-            } catch (IOException e) { }
+            } catch (IOException e) {
+            }
 
             mmInStream = tmpIn;
             mmOutStream = tmpOut;
@@ -249,10 +350,10 @@ public class MainActivity extends AppCompatActivity {
                      */
                     buffer[bytes] = (byte) mmInStream.read();
                     String readMessage;
-                    if (buffer[bytes] == '\n'){
-                        readMessage = new String(buffer,0,bytes);
-                        Log.e("Arduino Message",readMessage);
-                        handler.obtainMessage(MESSAGE_READ,readMessage).sendToTarget();
+                    if (buffer[bytes] == '\n') {
+                        readMessage = new String(buffer, 0, bytes);
+                        Log.e("Arduino Message", readMessage);
+                        handler.obtainMessage(MESSAGE_READ, readMessage).sendToTarget();
                         bytes = 0;
                     } else {
                         bytes++;
@@ -270,7 +371,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 mmOutStream.write(bytes);
             } catch (IOException e) {
-                Log.e("Send Error","Unable to send message",e);
+                Log.e("Send Error", "Unable to send message", e);
             }
         }
 
@@ -278,7 +379,8 @@ public class MainActivity extends AppCompatActivity {
         public void cancel() {
             try {
                 mmSocket.close();
-            } catch (IOException e) { }
+            } catch (IOException e) {
+            }
         }
     }
 
@@ -286,7 +388,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         // Terminate Bluetooth Connection and close app
-        if (createConnectThread != null){
+        if (createConnectThread != null) {
             createConnectThread.cancel();
         }
         Intent a = new Intent(Intent.ACTION_MAIN);
