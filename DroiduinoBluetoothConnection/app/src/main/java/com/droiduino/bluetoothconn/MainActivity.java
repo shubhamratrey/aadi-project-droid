@@ -158,94 +158,42 @@ public class MainActivity extends AppCompatActivity {
     public void layoutStates(int layout_id, String state, String text) {
         if (layout_id == R.id.layout_1) {
             TextView textView = findViewById(R.id.textView_1);
-            textView.setText(text);
             ImageView imageView = findViewById(R.id.image_1);
-            switch (state) {
-                case "charging":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.yellow_helmet));
-                    break;
-                case "not-charging":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.red_helmet));
-                    break;
-                case "fully-charging":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.green_helmet));
-                    break;
-                case "not-available":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.grey_helmet));
-                    break;
-            }
+            setImageAndText(imageView, textView, state, text);
         } else if (layout_id == R.id.layout_2) {
             TextView textView = findViewById(R.id.textView_2);
-            textView.setText(text);
             ImageView imageView = findViewById(R.id.image_2);
-            switch (state) {
-                case "charging":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.yellow_helmet));
-                    break;
-                case "not-charging":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.red_helmet));
-                    break;
-                case "fully-charging":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.green_helmet));
-                    break;
-                case "not-available":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.grey_helmet));
-                    break;
-            }
+            setImageAndText(imageView, textView, state, text);
         } else if (layout_id == R.id.layout_3) {
             TextView textView = findViewById(R.id.textView_3);
-            textView.setText(text);
             ImageView imageView = findViewById(R.id.image_3);
-            switch (state) {
-                case "charging":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.yellow_helmet));
-                    break;
-                case "not-charging":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.red_helmet));
-                    break;
-                case "fully-charging":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.green_helmet));
-                    break;
-                case "not-available":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.grey_helmet));
-                    break;
-            }
+            setImageAndText(imageView, textView, state, text);
         } else if (layout_id == R.id.layout_4) {
             TextView textView = findViewById(R.id.textView_4);
-            textView.setText(text);
             ImageView imageView = findViewById(R.id.image_4);
-            switch (state) {
-                case "charging":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.yellow_helmet));
-                    break;
-                case "not-charging":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.red_helmet));
-                    break;
-                case "fully-charging":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.green_helmet));
-                    break;
-                case "not-available":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.grey_helmet));
-                    break;
-            }
+            setImageAndText(imageView, textView, state, text);
         } else if (layout_id == R.id.layout_5) {
             TextView textView = findViewById(R.id.textView_5);
-            textView.setText(text);
             ImageView imageView = findViewById(R.id.image_5);
-            switch (state) {
-                case "charging":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.yellow_helmet));
-                    break;
-                case "not-charging":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.red_helmet));
-                    break;
-                case "fully-charging":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.green_helmet));
-                    break;
-                case "not-available":
-                    imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.grey_helmet));
-                    break;
-            }
+            setImageAndText(imageView, textView, state, text);
+        }
+    }
+
+    public void setImageAndText(ImageView imageView, TextView textView, String state, String text) {
+        textView.setText(text);
+        switch (state) {
+            case "charging":
+                imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.yellow_helmet));
+                break;
+            case "not-charging":
+                imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.red_helmet));
+                break;
+            case "fully-charging":
+                imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.green_helmet));
+                break;
+            case "not-available":
+                imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.grey_helmet));
+                break;
         }
     }
 
